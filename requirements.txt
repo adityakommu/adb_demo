@@ -1,0 +1,18 @@
+# Core dependencies (standard library - no external packages required)
+# The application uses only Python standard library modules:
+# - argparse
+# - csv
+# - re
+# - logging
+# - datetime
+# - urllib.parse
+# - collections
+# - typing
+# - dataclasses
+
+# AWS Lambda dependencies (only needed for Lambda deployment)
+boto3>=1.26.0
+
+# Development/Testing dependencies
+pytest>=7.0.0
+pytest-cov>=4.0.0
