@@ -70,6 +70,7 @@ class SearchKeywordProcessor:
             {'Search Engine Domain': k[0], 'Search Keyword': k[1], 'Revenue': v}
             for k, v in revenue.items()
         ])
+        print(result)
 
         if len(result) > 0:
             result = result.sort_values('Revenue', ascending=False)
@@ -85,6 +86,7 @@ class SearchKeywordProcessor:
 
 
 def lambda_handler(event, context):
+    print("Testing NEw lambda")
     print(f"Event: {json.dumps(event)}")
 
     try:

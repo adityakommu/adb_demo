@@ -90,6 +90,8 @@ class SearchKeywordProcessor:
             {'Search Engine Domain': k[0], 'Search Keyword': k[1], 'Revenue': v}
             for k, v in self.revenue.items()
         ])
+        print("REsult is :")
+        print(result)
 
         return result.sort_values('Revenue', ascending=False) if len(result) > 0 else result
 
@@ -110,11 +112,12 @@ def main():
     args = parser.parse_args()
 
     processor = SearchKeywordProcessor(args.input_file)
+
     result = processor.process()
 
     output_file = args.output or f"{datetime.now().strftime('%Y-%m-%d')}_SearchKeywordPerformance.tab"
     result.to_csv(output_file, sep='\t', index=False, float_format='%.2f')
-
+    
     print(f"\n{'='*50}")
     print(result.to_string(index=False))
     print(f"\nTotal Revenue: ${result['Revenue'].sum():,.2f}")
